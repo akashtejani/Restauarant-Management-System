@@ -78,7 +78,7 @@ INSERT INTO `ordermethod` (`table_no`, `name`) VALUES
 ('table02', NULL),
 ('table03', NULL),
 ('table04', NULL),
-('table05', 'yash'),
+('table05', NULL),
 ('table06', NULL),
 ('table07', NULL),
 ('table08', NULL),
