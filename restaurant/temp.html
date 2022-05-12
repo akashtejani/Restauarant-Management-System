@@ -1,0 +1,51 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <select id="groups">
+            <option value='America'>America</option>
+            <option value='Europe'>Europe</option>
+            <option value='Asia'>Asia</option>
+        <select>
+        
+        <select id="sub_groups">
+            <option data-group='SHOW' value='0'>-- Select --</option>
+            <option data-group='America' value='Argentina'>Argentina</option>
+            <option data-group='America' value='Brazil'>Brazil</option>
+            <option data-group='America' value='Chile'>Chile</option>
+            <option data-group='Europe' value='Italy'>Italy</option>
+            <option data-group='Europe' value='France'>France</option>
+            <option data-group='Europe' value='Spain'>Spain</option>
+            <option data-group='Asia' value='China'>China</option>
+            <option data-group='Asia' value='Japan'>Japan</option>
+        
+
+
+        <script>
+        $(function(){
+    $('#groups').on('change', function(){
+        var val = $(this).val();
+        var sub = $('#sub_groups');
+        $('option', sub).filter(function(){
+            if (
+                 $(this).attr('data-group') === val 
+              || $(this).attr('data-group') === 'SHOW'
+            ) {
+              if ($(this).parent('span').length) {
+                $(this).unwrap();
+              }
+            } else {
+              if (!$(this).parent('span').length) {
+                $(this).wrap( "<span>" ).parent().hide();
+              }
+            }
+        });
+    });
+    $('#groups').trigger('change');
+});
+    </script>
+    </body>
+</html>
